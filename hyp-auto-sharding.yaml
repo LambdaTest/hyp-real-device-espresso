@@ -1,0 +1,31 @@
+version: "0.2"
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+
+concurrency: 2
+
+runson: android
+
+autosplit: true
+
+framework:
+  name: "android/espresso"
+  args:
+    buildName: "Espresso"
+    video: true
+    deviceLog: true
+    
+    # You can use either the appId (lt://APP1234567) or provide the path of the application using appPath. Both examples are given below.
+    appPath: proverbial_android.apk
+    testSuitePath: proverbial_android_expressotest.apk
+    # We have used the appPath and testSuitePath here. 
+    
+    appId: lt://APP123456789
+    testSuiteAppId: lt://APP123456789
+    # We have used the appId and testSuiteAppID here.
+
+    deviceSelectionStrategy: all
+    devices: ["Galaxy.*", "Pixel.*"]
+
+jobLabel: ['HYP', 'Espresso', 'Auto Sharding']
